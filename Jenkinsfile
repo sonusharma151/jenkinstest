@@ -28,7 +28,7 @@ pipeline {
             steps {
                 echo 'Sonar Scanner'
                	//def scannerHome = tool 'SonarQube Scanner 3.0'
-			    withSonarQubeEnv('SonarQube Server') {
+			    withSonarQubeEnv('SonarQubeServer') {
 			    	bat 'mvn clean package sonar:sonar'
 			    }
             }
