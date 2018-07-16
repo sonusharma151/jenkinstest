@@ -9,6 +9,7 @@ pipeline {
                		}
            	]
 		}"""
+	        server = Artifactory.server 'LocalJfrog'
 	}
     stages {
         stage('Checkout') {
