@@ -53,12 +53,10 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo '## TODO DEPLOYMENT ##'
-		script {
-			server.username = 'admin	'
-			server.password = 'password'
-			server.bypassProxy = true
-               		def buildInfo = server.upload spec: uploadSpec
-            	}
+		server.username = 'admin	'
+		server.password = 'password'
+		server.bypassProxy = true
+               	def buildInfo = server.upload spec: uploadSpec
             }
         }
     }
