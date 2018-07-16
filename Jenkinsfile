@@ -1,5 +1,15 @@
 pipeline {
     agent any
+    environment {
+		uploadSpec = """{
+       		"files": [
+               		{
+				"pattern": "target/*.jar",
+				"target": "libs-snapshot-local/"
+               		}
+           	]
+		}"""
+	}
     stages {
         stage('Checkout') {
             steps {
@@ -42,14 +52,6 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo '## TODO DEPLOYMENT ##'
-		def uploadSpec = """{
-           	"files": [
-               			{
-				"pattern": "target/*.jar",
-				"target": "libs-snapshot-local/"
-               			}
-           		]
-    		}"""
 		script {
 			server.username = 'admin	'
 			server.password = 'password'
