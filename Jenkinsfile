@@ -42,6 +42,20 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo '## TODO DEPLOYMENT ##'
+		def uploadSpec = """{
+           	"files": [
+               			{
+				"pattern": "target/*.jar",
+				"target": "libs-snapshot-local/"
+               			}
+           		]
+    		}"""
+		script {
+			server.username = 'admin	'
+			server.password = 'password'
+			server.bypassProxy = true
+               		def buildInfo = server.upload spec: uploadSpec
+            	}
             }
         }
     }
