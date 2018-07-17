@@ -9,7 +9,7 @@ pipeline {
                		}
            	]
 		}"""
-	        server = Artifactory.server 'LocalJfrog'
+//	        server = Artifactory.server 'LocalJfrog'
 	}
     stages {
         stage('Checkout') {
@@ -53,10 +53,10 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo '## TODO DEPLOYMENT ##'
-		server.username = 'admin	'
-		server.password = 'password'
-		server.bypassProxy = true
-               	def buildInfo = server.upload spec: uploadSpec
+//		server.username = 'admin	'
+//		server.password = 'password'
+//		server.bypassProxy = true
+//             	def buildInfo = server.upload spec: uploadSpec
             }
         }
     }
